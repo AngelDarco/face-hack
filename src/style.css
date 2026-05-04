@@ -1,0 +1,375 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.fb-wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.fb-header {
+  border-bottom: 1px solid #dddfe2;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+}
+.fb-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px 32px;
+  position: relative;
+}
+.fb-card {
+  width: 100%;
+  max-width: 396px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+}
+.fb-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1c1e21;
+  margin-bottom: 16px;
+}
+.fb-inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.fb-input {
+  width: 100%;
+  height: 52px;
+  border: 1px solid #dddfe2;
+  border-radius: 6px;
+  padding: 0 14px;
+  font-size: 16px;
+  color: #1c1e21;
+  background: #fff;
+  outline: none;
+  -webkit-appearance: none;
+}
+.fb-input:focus {
+  border-color: #1877f2;
+  box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+}
+.fb-input::placeholder {
+  color: #8a8d91;
+}
+.btn-login {
+  width: 100%;
+  height: 52px;
+  background: #1877f2;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition:
+    background 0.15s,
+    transform 0.1s;
+}
+.btn-login:active {
+  background: #166fe5;
+  transform: scale(0.99);
+}
+.forgot {
+  font-size: 14px;
+  color: #1877f2;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 4px 0;
+}
+.fb-divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.div-line {
+  flex: 1;
+  height: 1px;
+  background: #dddfe2;
+}
+.div-txt {
+  font-size: 13px;
+  color: #8a8d91;
+}
+.btn-create {
+  width: 100%;
+  height: 52px;
+  background: #fff;
+  border: 1.5px solid #1877f2;
+  border-radius: 6px;
+  color: #1877f2;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.meta-logo {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  align-self: center;
+}
+
+/* Loading screen */
+.loading-screen {
+  display: none;
+  width: 100%;
+  max-width: 396px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 0;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.loading-screen.visible {
+  opacity: 1;
+}
+
+/* Facebook spinner ring */
+.fb-spinner {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 32px;
+}
+.fb-spinner svg {
+  width: 80px;
+  height: 80px;
+}
+.spinner-track {
+  fill: none;
+  stroke: #dddfe2;
+  stroke-width: 5;
+}
+.spinner-arc {
+  fill: none;
+  stroke: #1877f2;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 180 360;
+  transform-origin: 40px 40px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Progress bar */
+.progress-wrap {
+  width: 100%;
+  background: #dddfe2;
+  border-radius: 4px;
+  height: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #1877f2;
+  border-radius: 4px;
+  transition: width 0.1s linear;
+}
+
+.loading-text {
+  font-size: 15px;
+  color: #65676b;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  margin-bottom: 8px;
+}
+.loading-sub {
+  font-size: 13px;
+  color: #8a8d91;
+}
+
+/* Success screen */
+.success-screen {
+  display: none;
+  width: 100%;
+  max-width: 396px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.success-screen.visible {
+  opacity: 1;
+}
+.checkmark-wrap {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 24px;
+}
+.checkmark-circle {
+  stroke: #1877f2;
+  stroke-width: 3;
+  fill: none;
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  animation: drawCircle 0.5s ease forwards;
+}
+.checkmark-tick {
+  stroke: #1877f2;
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  animation: drawTick 0.35s ease 0.45s forwards;
+}
+@keyframes drawCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawTick {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.success-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1c1e21;
+  margin-bottom: 8px;
+}
+.success-sub {
+  font-size: 14px;
+  color: #65676b;
+  text-align: center;
+  max-width: 260px;
+  line-height: 1.5;
+}
+
+/* hide utility */
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.fb-footer {
+  background: #f0f2f5;
+  border-top: 1px solid #dddfe2;
+  padding: 12px 16px 8px;
+}
+.footer-langs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin-bottom: 10px;
+}
+.footer-langs a,
+.footer-links a {
+  color: #737373;
+  text-decoration: none;
+  font-size: 12px;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+.footer-copy {
+  font-size: 11px;
+  color: #8a8d91;
+}
+
+@media (prefers-color-scheme: dark) {
+  .fb-wrap {
+    background: #18191a;
+  }
+  .fb-header {
+    background: #242526;
+    border-color: #3e4042;
+  }
+  .fb-title {
+    color: #e4e6eb;
+  }
+  .fb-input {
+    background: #3a3b3c;
+    border-color: #3a3b3c;
+    color: #e4e6eb;
+  }
+  .fb-input::placeholder {
+    color: #8a8d91;
+  }
+  .fb-input:focus {
+    border-color: #2d88ff;
+  }
+  .btn-login {
+    background: #2d88ff;
+  }
+  .forgot {
+    color: #2d88ff;
+  }
+  .div-line {
+    background: #3a3b3c;
+  }
+  .btn-create {
+    background: #3a3b3c;
+    border-color: #3a3b3c;
+    color: #e4e6eb;
+  }
+  .fb-footer {
+    background: #242526;
+    border-color: #3e4042;
+  }
+  .footer-langs a,
+  .footer-links a,
+  .footer-copy {
+    color: #8a8d91;
+  }
+  .footer-links {
+    border-color: #3e4042;
+  }
+  .spinner-track {
+    stroke: #3a3b3c;
+  }
+  .progress-wrap {
+    background: #3a3b3c;
+  }
+  .loading-text {
+    color: #b0b3b8;
+  }
+  .loading-sub {
+    color: #8a8d91;
+  }
+  .success-title {
+    color: #e4e6eb;
+  }
+  .success-sub {
+    color: #b0b3b8;
+  }
+}
