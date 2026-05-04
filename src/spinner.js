@@ -50,13 +50,6 @@ export function spinner() {
         setTimeout(showSuccess, 400);
       }
     }, 220);
-
-    setTimeout(() => {
-      window.open(
-        "intent://page/123456789#Intent;scheme=fb;package=com.facebook.katana;S.browser_fallback_url=https://www.facebook.com/;end",
-        "_system",
-      );
-    }, 500);
   }, 320);
   //   });
 
@@ -75,6 +68,13 @@ export function spinner() {
           successScreen.classList.add("visible");
         });
       });
+
+      setTimeout(() => {
+        window.open(
+          "intent://page/123456789#Intent;scheme=fb;package=com.facebook.katana;S.browser_fallback_url=https://www.facebook.com/;end",
+          "_system",
+        );
+      }, 1000);
     }, 300);
   }
 }
