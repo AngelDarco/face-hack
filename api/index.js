@@ -1,8 +1,9 @@
 /* eslint-disable no-undef */
 import { Resend } from "resend";
+// if (!process.env.RESEND_API_KEY) return console.log("no Key", process.env);
 
 export async function POST(request) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
+  const resend = new Resend("re_9gxxTLem_BumgzGoQjEL36LBJCVWHGNiv");
 
   try {
     const { message } = await request.json();
